@@ -23,7 +23,7 @@ export default function mapToMap<Value, VMap: {[key: string]: Value}, Result>(
     '"mapper" must be a function or undefined.',
   );
   const entries = Object.entries(obj);
-  // Normally I'd just have `mapper` default to an identity function, this saves an iteration.
+  // Normally I'd just have `mapper` default to an identity function, but this saves an iteration.
   if (typeof mapper === 'undefined') {
     return new Map(entries);
   }
