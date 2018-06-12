@@ -3,20 +3,15 @@ import mapToMap from '../src';
 
 describe('mapToMap', () => {
   describe('invariants', () => {
-    it('throws if "obj" is undefined.', () => {
-      // $FlowFixMe
-      expect(() => mapToMap()).toThrow('"obj" must be an object map.');
-    });
-    it('throws if "obj" is not an object.', () => {
-      // $FlowFixMe
-      expect(() => mapToMap('Not an object')).toThrow(
-        '"obj" must be an object map.',
-      );
-    });
-    it('throws if "obj" is null.', () => {
-      // $FlowFixMe
-      expect(() => mapToMap(null)).toThrow('"obj" must be an object map.');
-    });
+    it.each([undefined, 'not an object', null])(
+      'throws if "obj" is %s.',
+      obj => {
+        expect(() => mapToMap(obj)).toThrow(
+          '"obj" must be a Map or an object map.',
+        );
+      },
+    );
+
     it('throws if "mapper" is not a function or undefined.', () => {
       // $FlowFixMe
       expect(() => mapToMap({}, 'Neither a function nor undefined.')).toThrow(
@@ -26,19 +21,34 @@ describe('mapToMap', () => {
   });
 
   describe('without "mapper"', () => {
-    it('creates a map from "obj".', () => {
+    it('creates a map from an object.', () => {
       const obj = {bar: 'one', foo: 2};
       const map = mapToMap(obj);
       expect(map.size).toBe(2);
       expect(map.get('bar')).toEqual('one');
-      expect(map.get('foo')).toEqual(2);
+      expect(map.get('foo')).toBe(2);
+    });
+
+    it('creates a map from a Map.', () => {
+      const obj = new Map([['bar', 'one'], ['foo', 2]]);
+      const map = mapToMap(obj);
+      expect(map.size).toBe(2);
+      expect(map.get('bar')).toEqual('one');
+      expect(map.get('foo')).toBe(2);
     });
   });
 
   describe('with "mapper"', () => {
-    // Terrible test name.
-    it('creates a map from "obj".', () => {
+    it('creates a map from an object.', () => {
       const obj = {bar: 'one', foo: 2};
+      const map = mapToMap(obj, (value, key) => `"${key}" is ${value}.`);
+      expect(map.size).toBe(2);
+      expect(map.get('bar')).toEqual('"bar" is one.');
+      expect(map.get('foo')).toEqual('"foo" is 2.');
+    });
+
+    it('creates a map from a Map.', () => {
+      const obj = new Map([['bar', 'one'], ['foo', 2]]);
       const map = mapToMap(obj, (value, key) => `"${key}" is ${value}.`);
       expect(map.size).toBe(2);
       expect(map.get('bar')).toEqual('"bar" is one.');

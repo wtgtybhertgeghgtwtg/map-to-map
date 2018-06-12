@@ -860,7 +860,9 @@ declare var describe: {
   /**
    * Skip running this describe block
    */
-  skip(name: JestTestName, fn: () => void): void
+  skip(name: JestTestName, fn: () => void): void,
+
+  each<TArguments>(args: $ReadOnlyArray<TArguments>): (name: JestTestName, args: TArguments) => void
 };
 
 /** An individual test unit */
@@ -912,7 +914,9 @@ declare var it: {
     name: JestTestName,
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
-  ): void
+  ): void,
+
+  each<TArguments>(args: $ReadOnlyArray<TArguments>): (name: JestTestName, args: TArguments) => ?Promise<mixed>
 };
 declare function fit(
   name: JestTestName,

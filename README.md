@@ -1,6 +1,6 @@
 # map-to-map
 
-> Map an object to a Map.
+> Map an object (or Map) to a Map.
 
 ## Install
 
@@ -22,17 +22,17 @@ map.get('propOne');
 
 ### mapToMap(obj, mapper)
 
-Returns a Map whose values are made from running the properties of `obj` through `mapper`.
+Returns a Map whose values are made from running the properties of `obj` through `mapper`. If `obj` is a `Map`, it'll map its entries, instead.
 
 #### obj
 
-* Type: `object`
+- Type: `object` | `Map`
 
-An object.
+An object or `Map`.
 
 #### mapper(value, key)
 
-* Type: `Function`
+- Type: `Function`
 
 An optional mapper function.
 

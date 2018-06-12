@@ -6,7 +6,7 @@
   "dependencies": {
     "isobject": "^3.0.1"
   },
-  "description": "Map an object to a Map.",
+  "description": "Map an object (or Map) to a Map.",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
