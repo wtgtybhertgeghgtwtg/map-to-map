@@ -3,24 +3,20 @@
     "email": "wtgtybhertgeghgtwtg@gmail.com",
     "name": "Matthew Fernando Garcia"
   },
-  "bugs": {
-    "url": "https://github.com/wtgtybhertgeghgtwtg/map-to-map/issues"
-  },
   "dependencies": {
     "isobject": "^3.0.1"
   },
   "description": "Map an object to a Map.",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
-    "@babel/preset-flow": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-flow": "^7.0.0-beta.46",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
-    "assign-deep": "^0.4.7",
-    "babel-core": "^7.0.0-bridge.0",
+    "@wtg/scripts": "^1.1.2",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^23.0.0",
-    "builtin-modules": "^2.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -31,9 +27,7 @@
     "jest": "^23.0.0",
     "lint-staged": "^7.0.4",
     "prettier": "1.13.5",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.58.0",
-    "rollup-plugin-babel": "^4.0.0-beta.4"
+    "rimraf": "^2.6.2"
   },
   "engines": {
     "node": ">=8"
@@ -46,16 +40,11 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "name": "map-to-map",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wtgtybhertgeghgtwtg/map-to-map"
-  },
+  "repository": "wtgtybhertgeghgtwtg/map-to-map",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && echo \"// @flow\\nexport * from '../src';\" > dist/index.cjs.js.flow",
-    "build:cjs": "rollup --config ./scripts/rollup/config.cjs.js",
-    "build:es": "rollup --config ./scripts/rollup/config.es.js",
+    "build": "wtg build",
     "clean": "rimraf coverage dist",
-    "lint": "flow && eslint . && prettier --l \"{__tests__,src}/**/*.js\"",
+    "lint": "flow && eslint . && prettier --l \"{__tests__,scripts,src}/**/*.js\"",
     "test": "yarn test:src && yarn build && yarn test:dist",
     "test:src": "jest --config ./scripts/jest/config.source.js",
     "test:dist": "jest --config ./scripts/jest/config.dist.js"
