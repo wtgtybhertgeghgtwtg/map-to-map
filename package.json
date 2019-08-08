@@ -4,7 +4,7 @@
     "name": "Matthew Fernando Garcia"
   },
   "dependencies": {
-    "isobject": "^3.0.1"
+    "isobject": "^4.0.0"
   },
   "description": "Map an object (or Map) to a Map.",
   "devDependencies": {
