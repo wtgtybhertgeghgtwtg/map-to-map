@@ -13,18 +13,18 @@ $ yarn add map-to-map
 ```js
 const mapToMap = require('map-to-map');
 
-const map = mapToMap({propOne: 10, propTwo: 20}, value => value * value);
+const map = mapToMap({propOne: 10, propTwo: 20}, (value) => value * value);
 // Returns 100.
 map.get('propOne');
 ```
 
 ## API
 
-### mapToMap(obj, mapper)
+### mapToMap(object, mapper)
 
-Returns a Map whose values are made from running the properties of `obj` through `mapper`. If `obj` is a `Map`, it'll map its entries, instead.
+Returns a Map whose values are made from running the properties of `object` through `mapper`. If `object` is a `Map`, it'll map its entries, instead.
 
-#### obj
+#### object
 
 - Type: `object` | `Map`
 
