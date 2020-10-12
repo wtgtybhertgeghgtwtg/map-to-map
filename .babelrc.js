@@ -1,12 +1,12 @@
 module.exports = {
   presets: [
     [
-      '@babel/preset-env',
+      '@babel/env',
       {
         modules: process.env.NODE_ENV === 'test' && 'commonjs',
-        targets: {node: '8'},
+        targets: {node: '10'},
       },
     ],
-    '@babel/preset-flow',
+    '@babel/typescript',
   ],
 };

@@ -3,38 +3,42 @@
     "email": "wtgtybhertgeghgtwtg@gmail.com",
     "name": "Matthew Fernando Garcia"
   },
-  "dependencies": {
-    "isobject": "^4.0.0"
-  },
   "description": "Map an object (or Map) to a Map.",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/preset-env": "^7.0.0-beta.46",
-    "@babel/preset-flow": "^7.0.0-beta.46",
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
-    "@wtg/scripts": "^1.1.2",
-    "babel-core": "7.0.0-bridge.0",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rushstack/eslint-config": "^2.2.1",
+    "@types/jest": "^26.0.14",
     "babel-eslint": "^10.0.0",
-    "babel-jest": "^24.0.0",
-    "eslint": "^6.0.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-flowtype": "^4.0.0",
-    "eslint-plugin-import": "^2.10.0",
-    "flow-bin": "^0.123.0",
-    "husky": "^3.0.0",
-    "jest": "^24.0.0",
-    "lint-staged": "^10.0.0",
-    "prettier": "1.18.2",
-    "rimraf": "^3.0.0"
+    "babel-jest": "^26.5.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.11.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-unicorn": "^22.0.0",
+    "husky": "^4.3.0",
+    "jest": "^26.5.2",
+    "lint-staged": "^10.4.0",
+    "map-to-map": "^1.1.1",
+    "prettier": "2.1.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.29.0",
+    "typescript": "^4.0.3"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "files": [
     "dist",
     "src"
+  ],
+  "keywords": [
+    "map",
+    "object"
   ],
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -42,12 +46,14 @@
   "name": "map-to-map",
   "repository": "wtgtybhertgeghgtwtg/map-to-map",
   "scripts": {
-    "build": "wtg build",
+    "build": "rollup -c",
     "clean": "rimraf coverage dist",
-    "lint": "flow && eslint . && prettier --l \"{__tests__,scripts,src}/**/*.js\"",
+    "lint": "tsc && eslint . && prettier --l \"{__tests__,scripts,src}/**/*.ts\"",
     "test": "yarn test:src && yarn build && yarn test:dist",
     "test:src": "jest --config ./scripts/jest/config.source.js",
     "test:dist": "jest --config ./scripts/jest/config.dist.js"
   },
+  "sideEffects": false,
+  "types": "./src",
   "version": "0.0.0-semantic-release"
 }
