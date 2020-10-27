@@ -11,7 +11,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@rushstack/eslint-config": "^2.2.1",
     "@types/jest": "^26.0.14",
     "babel-eslint": "^10.0.0",
