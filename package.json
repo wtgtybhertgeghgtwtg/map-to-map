@@ -13,7 +13,7 @@
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rushstack/eslint-config": "^2.2.1",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^27.0.0",
     "babel-eslint": "^10.0.0",
     "babel-jest": "^27.0.0",
     "cross-env": "^7.0.2",
